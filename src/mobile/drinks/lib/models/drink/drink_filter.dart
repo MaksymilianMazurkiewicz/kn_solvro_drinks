@@ -1,0 +1,3 @@
+class DrinkFilter { 
+  String? name;
+}
