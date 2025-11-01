@@ -27,7 +27,7 @@ class _DrinkListState extends State<DrinkList> {
   Timer? _debounce;
   final Duration _debounceDuration = const Duration(milliseconds: 350);
 
-  late final _pagingController = PagingController<int, Drink>(
+  late final _pagingController = PagingController<int, BaseDrink>(
     getNextPageKey: (state) {
       if (_metaData != null && _results.length >= _metaData!.total) {
         return null;
@@ -37,7 +37,7 @@ class _DrinkListState extends State<DrinkList> {
     fetchPage: (pageKey) => loadData(pageKey),
   );
 
-  List<Drink> _results = [];
+  List<BaseDrink> _results = [];
   Meta? _metaData = null;
   DrinkFilter fillter = new DrinkFilter();
 
@@ -52,7 +52,7 @@ class _DrinkListState extends State<DrinkList> {
     super.dispose();
   }
 
-  Future<List<Drink>> loadData(int page) async {
+  Future<List<BaseDrink>> loadData(int page) async {
     if (_metaData != null && _results.length >= _metaData!.total) {
       return [];
     }
@@ -75,7 +75,7 @@ class _DrinkListState extends State<DrinkList> {
     });
   }
 
-  void handleDetails(Drink item) {
+  void handleDetails(BaseDrink item) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => DrinkDetails(drink: item,)),
@@ -107,7 +107,7 @@ class _DrinkListState extends State<DrinkList> {
             child: PagingListener(
               controller: _pagingController,
               builder: (context, state, fetchNextPage) =>
-                  PagedListView<int, Drink>(
+                  PagedListView<int, BaseDrink>(
                     state: state,
                     fetchNextPage: fetchNextPage,
                     builderDelegate: PagedChildBuilderDelegate(

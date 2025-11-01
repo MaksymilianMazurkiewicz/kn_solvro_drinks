@@ -1,3 +1,17 @@
+import 'dart:convert';
+
+class ApiResult<T> {
+  T data;
+
+  ApiResult({
+    required this.data
+  });
+
+  factory ApiResult.fromJson(Map<String, dynamic> json, T Function(Map<String, dynamic>) fromJsonT) {
+    return ApiResult(data: fromJsonT(json['data']));
+  }
+}
+
 class ApiResults<T> {
   Meta meta;
   List<T> data;

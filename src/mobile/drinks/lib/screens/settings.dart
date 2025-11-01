@@ -58,6 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: 10),
             DropdownButton<String>(
+              isExpanded: true,
               value: _selectedLanguage,
               items: languages.keys.map((lang) {
                 return DropdownMenuItem(
