@@ -114,7 +114,7 @@ class _DrinkDetailsState extends State<DrinkDetails> {
             ),
             const SizedBox(height: 16),
             Text(
-              'Składniki',
+              t.translate('ingredients'),
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
@@ -145,13 +145,13 @@ class _DrinkDetailsState extends State<DrinkDetails> {
                           )
                         : const Icon(Icons.local_drink,
                             size: 40, color: Colors.blueGrey),
-                    title: Text(item.name ?? "Brak nazwy"),
+                    title: Text(item.name ?? t.translate('noName')),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Miara: ${item.measure}"),
+                        Text("${t.translate('measure')}: ${item.measure}"),
                         if (item.alcohol)
-                          Text("Zawiera alkohol: ${item.percentage ?? '-'}%"),
+                          Text("${t.translate('percentage')}: ${item.percentage ?? '-'}%"),
                         if (item.description != null &&
                             item.description!.isNotEmpty)
                           Text(

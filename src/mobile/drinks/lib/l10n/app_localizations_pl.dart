@@ -8,6 +8,10 @@ const Map<String, String> localizedStringsPl = {
   'non-alcoholic': 'Napój bez alkocholowy',
   'ceatedAt': 'Utworzono: ',
   'updatedAt': 'Zakualizowano: ',
+  'ingredients': 'Składniki',
+  'noName': 'Bez nazwy',
+  'measure': 'Miara',
+  'percentage': 'Procenty alkocholu',
 
   'settingsTitle': 'Ustawienia',
   'settingsSelectLanguage': 'Wybierz język'
